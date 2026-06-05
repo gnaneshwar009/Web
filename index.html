@@ -11,26 +11,31 @@
 </head>
 <body>
   <div class="loader" aria-label="Opening animation">
+    <div class="loader-storyline"><span></span><span></span><span></span><span></span></div>
     <div class="loader-orbit">
       <span></span><span></span><span></span>
       <strong>@123</strong>
     </div>
-    <p>drawing the first chapter...</p>
+    <p>loading Kadapa memories, bike trails, secret glances...</p>
   </div>
 
-  <div class="progress-shell" aria-hidden="true">
+  <div class="progress-shell" aria-label="Animated reading progress">
     <div class="progress-bar"></div>
     <div class="progress-dot"></div>
   </div>
 
   <div class="cursor-glow" aria-hidden="true"></div>
   <div class="aurora" aria-hidden="true"></div>
+  <div class="doodle-layer" aria-hidden="true">
+    <span class="doodle-heart">♡</span><span class="doodle-star">✦</span><span class="doodle-bike">〰</span>
+  </div>
   <canvas id="constellation" aria-hidden="true"></canvas>
 
   <nav class="glass-nav">
     <a href="#hero" class="brand"><span>@123</span><i>♥</i><span>@124</span></a>
     <div class="nav-links">
       <a href="#friends">Friends</a>
+      <a href="#complete-story">Full Story</a>
       <a href="#timeline">Timeline</a>
       <a href="#shadows">Shadows</a>
       <a href="#future">Now</a>
@@ -38,14 +43,17 @@
   </nav>
 
   <main>
-    <section id="hero" class="hero panel">
+    <section id="hero" class="hero panel scene" data-scene="hostel-to-heart">
       <div class="hero-copy reveal">
-        <p class="eyebrow">A dark cinematic love-scroll</p>
-        <h1><span>How</span> <b>@123</b> <span>fell for</span> <b>@124</b></h1>
-        <p class="subtitle">A story of hostel distance, Kadapa breaks, secret bike trails, loyal shadows, and a love that is still loading its next chapter.</p>
+        <p class="eyebrow">Realtime collaborative animation • Storytelling 2.0</p>
+        <h1><span>How</span> <b>@123</b> <span>fell in love with</span> <b>@124</b></h1>
+        <p class="subtitle">A dark cinematic scroll story about hostel distance, Kadapa breaks, three close friends, teasing, rules, secret bike trails, loyal shadows, and a chapter that is still growing.</p>
         <div class="hero-actions">
-          <a class="magnetic btn primary" href="#timeline">Start the story</a>
+          <a class="magnetic btn primary" href="#complete-story">Read every line</a>
           <button class="magnetic btn ghost" id="syncMoment">Sync hearts</button>
+        </div>
+        <div class="live-collab" aria-label="Realtime collaborative animation status">
+          <span class="pulse-dot"></span><strong>Live story room</strong><em>@123 watching</em><em>@125 helping</em><em>@126 supporting</em>
         </div>
       </div>
 
@@ -53,132 +61,134 @@
         <svg class="heart-line" viewBox="0 0 420 210" role="img" aria-label="Self drawing heart path from @123 to @124">
           <path d="M40 150 C80 40 155 80 210 135 C265 80 340 40 380 150 C330 205 255 205 210 178 C165 205 90 205 40 150Z" />
         </svg>
-        <div class="character boy123" data-name="@123">
-          <div class="head"></div><div class="body"></div><div class="legs"></div>
-        </div>
-        <div class="character girl124" data-name="@124">
-          <div class="head"></div><div class="body dress"></div><div class="legs"></div>
-        </div>
+        <div class="classroom opposite-a">@125 + @126 class</div>
+        <div class="classroom opposite-b">@124 opposite class</div>
+        <div class="character boy123" data-name="@123"><div class="head"></div><div class="body"></div><div class="legs"></div></div>
+        <div class="character girl124" data-name="@124"><div class="head"></div><div class="body dress"></div><div class="legs"></div></div>
         <div class="floating-note note-a">1 day older ✦</div>
         <div class="floating-note note-b">secret glances</div>
+        <div class="floating-note note-c">purple chapter</div>
       </div>
 
-      <div class="scroll-cue"><span></span>scroll to animate</div>
+      <div class="scroll-cue"><span></span>scroll to animate hero</div>
     </section>
 
-    <section id="friends" class="panel intro-grid">
+    <section id="friends" class="panel intro-grid scene" data-scene="three-friends">
       <article class="glass-card reveal">
+        <p class="eyebrow">Character website animations</p>
         <h2>Three close friends</h2>
-        <p>@125 and @126 were in the same Kadapa college and class, while @123 spent the first inter year in Sri Chaitanya hostel, Hyderabad, because of his parents.</p>
-        <p>Every few weeks, @123 came home to Kadapa and roamed with @125 and @126 in free time.</p>
+        <p>There were three close friends: @125, @123, and @126.</p>
+        <p>@125 and @126 were in the same college and the same class in Kadapa, but @123 went to Sri Chaitanya hostel in Hyderabad for inter first year because of his parents.</p>
+        <p>Every few weeks, @123 used to come home to Kadapa. In that free time, he used to roam with @125 and @126.</p>
       </article>
       <div class="friend-cards">
-        <article class="mini-card tilt reveal delay-1">
-          <div class="avatar avatar125"></div>
-          <h3>@125</h3>
-          <p>5.7ft • black tee • grey-black tracks • rule maker, food-rule keeper, lazy but loyal shadow.</p>
-        </article>
-        <article class="mini-card tilt reveal delay-2">
-          <div class="avatar avatar123"></div>
-          <h3>@123</h3>
-          <p>5.6ft • pink half-hands tee • black tracks • main character, quiet watcher, secretly determined.</p>
-        </article>
-        <article class="mini-card tilt reveal delay-3">
-          <div class="avatar avatar126"></div>
-          <h3>@126</h3>
-          <p>5.75ft • bright orange tee • dark blue tracks • normal, supportive, playful teasing partner.</p>
-        </article>
+        <article class="mini-card tilt reveal delay-1"><div class="avatar avatar125"></div><h3>@125</h3><p>5.7ft • black T-shirt • grey-black track pants • light brown skin, a little more brown than @124 but less than @123 • rule maker, food-rule keeper, lazy but deeply loyal shadow.</p></article>
+        <article class="mini-card tilt reveal delay-2"><div class="avatar avatar123"></div><h3>@123</h3><p>5.6ft • pink half-hands T-shirt • black track pants • light mid-brown skin • main character, quiet watcher, secretly determined, unwantedly in a better batch but still studying.</p></article>
+        <article class="mini-card tilt reveal delay-3"><div class="avatar avatar126"></div><h3>@126</h3><p>5.75ft • bright orange T-shirt • dark blue track pants • light brown skin, more brown than @124 and less brown than @125 • normal, supportive, playful teasing partner.</p></article>
+        <article class="mini-card tilt reveal delay-4"><div class="avatar avatar124"></div><h3>@124</h3><p>5.6ft • purple dress • light brown skin • the girl in the opposite class, the purple chapter of the story.</p></article>
+      </div>
+    </section>
+
+    <section id="complete-story" class="panel full-story scene" data-scene="full-story">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Full story archive</p>
+        <h2>Every chapter you told, written into the web</h2>
+        <p>This section keeps the full story in detailed lines, while the rest of the page turns those lines into vertical scroll, horizontal scroll, morphing, doodle, and collaborative animation scenes.</p>
+      </div>
+      <div class="story-ledger">
+        <article class="story-beat reveal"><span>01</span><h3>The three friends</h3><p>There were three close friends: @125, @123, and @126. @125 and @126 were in the same college and same class in Kadapa. @123 went to Sri Chaitanya hostel in Hyderabad for inter first year because of his parents.</p></article>
+        <article class="story-beat reveal"><span>02</span><h3>Kadapa returns</h3><p>After every few weeks, @123 used to come home to Kadapa. Whenever he came, @123 used to roam with @125 and @126 in free time, so the friendship stayed close even after the hostel distance.</p></article>
+        <article class="story-beat reveal"><span>03</span><h3>The better batch</h3><p>After two months, @123 returned to Kadapa to join the same batch as @125 and @126. But the seats were over, so he joined a better batch than @125 and @126. Not because he studied too much, yet he studied. @123 was there unwantedly.</p></article>
+        <article class="story-beat reveal"><span>04</span><h3>Break-time classroom visits</h3><p>@123 used to go to the classroom of @125 and @126 during the 15-minute break and the 1-hour lunch time. Those small breaks became their daily meeting points for talking, playing, and friendship.</p></article>
+        <article class="story-beat reveal"><span>05</span><h3>The @d teasing</h3><p>@123 and @126 playfully teased @125 with the nickname @d, where D connected to his crush names and also to some girls who were just nice to see, like netranandham comedy. @125 became a little angry and used to scold the girls, @123, and @126.</p></article>
+        <article class="story-beat reveal"><span>06</span><h3>Stopping the tease</h3><p>Later, @123 first told @126 that they should stop teasing @125. Even with teasing and scolding, @123, @125, and @126 used to talk and play with each other.</p></article>
+        <article class="story-beat reveal"><span>07</span><h3>@125's rules</h3><p>@125 liked to set his own rules and laws, mainly about property to his children, inheriting the values and manners of his grandfather, and one special food rule: do not open the carry box until @123 comes and starts eating.</p></article>
+        <article class="story-beat reveal"><span>08</span><h3>The carry-box exception</h3><p>The eating rule was broken only when @125 was very hungry or when he thought @123 would not come. @126 was just normal and usually supported @123 in teasing @125.</p></article>
+        <article class="story-beat reveal"><span>09</span><h3>Single plan</h3><p>At the starting, when @123 came from hostel to the college, he once said he would be single and would think of loving in BTech, or maybe just stay single.</p></article>
+        <article class="story-beat reveal"><span>10</span><h3>September–October changed it</h3><p>But @123 loved someone in September–October time. @123 told @125 and @126 that he would reveal the name on his birthday.</p></article>
+        <article class="story-beat reveal"><span>11</span><h3>The guessed name</h3><p>@125 guessed the name and told @123, but @123 said it was not true. A few days before his birthday in November, @125 forced @123 to say her name and again asked whether it was the same girl he had mentioned before.</p></article>
+        <article class="story-beat reveal"><span>12</span><h3>The reveal: @124</h3><p>Later @123 replied that @125's guess was correct. It was @124, the girl in the opposite class of @125 and @126. The coincidence was that @123 is one day older than @124.</p></article>
+        <article class="story-beat reveal"><span>13</span><h3>@125 becomes the shadow</h3><p>After that, @125 became the shadow. He collected information and details, did all the technical things, helped @123 see @124 a lot by giving his bike, and walked by @123's side so @123 would not get doubted.</p></article>
+        <article class="story-beat reveal"><span>14</span><h3>@126 becomes the minor shadow</h3><p>@126 became the minor shadow. He brought the bike when only @125 could not, but he used to walk with @123 more than @125 because @125 was very lazy.</p></article>
+        <article class="story-beat reveal"><span>15</span><h3>@123 as the main character</h3><p>@123 became the main character. He used to see @124 secretly and quietly. He followed @124 on the bike while carrying @125 too, and sometimes both @125 and @126 were part of the route.</p></article>
+        <article class="story-beat reveal"><span>16</span><h3>Extra study hours</h3><p>@123, @125, and @126 used to be in extra study hours because @123's parents wanted him to be there. Mainly @125 forcefully sat in extra study hours to support @123 in seeing @124 in the opposite class, and @126 also sat in extra study hours with @123.</p></article>
+        <article class="story-beat reveal"><span>17</span><h3>Following the auto</h3><p>@123 used to follow @124's auto to her home, mostly on @125's bike. When @123 followed @124 without eating, @125 also used to not eat because he was with @123. A very few times, @126 did the same.</p></article>
+        <article class="story-beat reveal"><span>18</span><h3>The effort she saw</h3><p>Only a minor fraction of the efforts were seen by @124. The main one she saw was @123 not eating anything to follow @124 when she was going to her house.</p></article>
+        <article class="story-beat reveal"><span>19</span><h3>Before IPE exams</h3><p>Later, inter IPE exams were beginning. @124 contacted her friend to send @123 a message and talk to @123 indirectly, telling him not to love @124 because she did not want to.</p></article>
+        <article class="story-beat reveal"><span>20</span><h3>Still progressing</h3><p>But @123 slowly became close, and the growth is currently progressing. The story is not finished; it is still drawing itself.</p></article>
       </div>
     </section>
 
     <section class="horizontal-wrap" aria-label="Horizontal story reel">
       <div class="horizontal-track">
-        <article class="story-slide hostel">
-          <span>01</span><h2>Hyderabad to Kadapa</h2>
-          <p>@123 returned from hostel after two months. Seats were over in the friends' batch, so he joined a better batch—unwantedly, but still studying.</p>
-        </article>
-        <article class="story-slide breaks">
-          <span>02</span><h2>15-minute portals</h2>
-          <p>Break time and lunch became portals: @123 visited @125 and @126's classroom to talk, play, and make ordinary days cinematic.</p>
-        </article>
-        <article class="story-slide tease">
-          <span>03</span><h2>The nickname @d</h2>
-          <p>@123 and @126 teased @125 with @d, a nickname linked to crush names starting with D and a little netranandham comedy.</p>
-        </article>
-        <article class="story-slide rule">
-          <span>04</span><h2>The carry-box law</h2>
-          <p>@125 made rules: values, manners, future property ideas—and the famous carry box rule: don't open until @123 arrives.</p>
-        </article>
+        <article class="story-slide hostel"><span>01</span><h2>Hyderabad to Kadapa</h2><p>@123 returned from hostel after two months. Seats were over in the friends' batch, so he joined a better batch—unwantedly, but still studying.</p></article>
+        <article class="story-slide breaks"><span>02</span><h2>15-minute portals</h2><p>Break time and lunch became portals: @123 visited @125 and @126's classroom to talk, play, and make ordinary days cinematic.</p></article>
+        <article class="story-slide tease"><span>03</span><h2>The nickname @d</h2><p>@123 and @126 teased @125 with @d, linked to crush names starting with D and some netranandham comedy. Later @123 told @126 to stop.</p></article>
+        <article class="story-slide rule"><span>04</span><h2>The carry-box law</h2><p>@125 made rules about values, manners, property, and the famous carry box rule: do not open until @123 arrives—unless hunger wins.</p></article>
+        <article class="story-slide reveal-name"><span>05</span><h2>Birthday secret</h2><p>@123 said he would reveal his love on his birthday. @125 guessed @124, @123 denied it, then finally admitted the guess was correct.</p></article>
+        <article class="story-slide auto"><span>06</span><h2>Auto route</h2><p>@123 followed @124's auto with shadows, bikes, skipped food, secret glances, and the hope that one small effort would be seen.</p></article>
       </div>
     </section>
 
-    <section id="timeline" class="panel timeline-section">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Morphing timeline</p>
-        <h2>When a “single forever” plan changed</h2>
-      </div>
-      <div class="morph-card reveal delay-1">
-        <div class="blob"></div>
-        <p>At first @123 said he would stay single, maybe think about love in BTech, or just never love. Then September–October happened.</p>
-      </div>
+    <section id="timeline" class="panel timeline-section scene" data-scene="morphing-timeline">
+      <div class="section-heading reveal"><p class="eyebrow">Morphing animation effects</p><h2>When a “single forever” plan changed</h2></div>
+      <div class="morph-card reveal delay-1"><div class="blob"></div><p>At first @123 said he would stay single, maybe think about love in BTech, or just never love. Then September–October happened, and the shape of the whole story morphed.</p></div>
       <div class="timeline">
+        <div class="timeline-item reveal"><b>Hostel</b><p>Sri Chaitanya Hyderabad made distance, but Kadapa visits kept the trio alive.</p></div>
+        <div class="timeline-item reveal"><b>College</b><p>@123 joined a better batch unwantedly, then used breaks and lunch to meet @125 and @126.</p></div>
         <div class="timeline-item reveal"><b>September–October</b><p>@123 loved someone and promised @125 and @126 he would reveal the name on his birthday.</p></div>
-        <div class="timeline-item reveal"><b>Before November birthday</b><p>@125 guessed the name. @123 denied it at first, but under pressure admitted the guess was right.</p></div>
+        <div class="timeline-item reveal"><b>Before November birthday</b><p>@125 guessed the name. @123 denied it first, but under pressure admitted the guess was right.</p></div>
         <div class="timeline-item reveal"><b>The reveal</b><p>The name was @124—the girl in the opposite class of @125 and @126.</p></div>
         <div class="timeline-item reveal"><b>The coincidence</b><p>@123 is exactly one day older than @124, turning the reveal into a tiny universe-made animation.</p></div>
+        <div class="timeline-item reveal"><b>IPE beginning</b><p>@124 indirectly sent the message not to love her, but the closeness slowly started growing.</p></div>
       </div>
     </section>
 
-    <section id="shadows" class="panel shadow-section">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Collaborative animations</p>
-        <h2>The shadows joined the mission</h2>
-      </div>
+    <section id="shadows" class="panel shadow-section scene" data-scene="collaborative-shadow-room">
+      <div class="section-heading reveal"><p class="eyebrow">Realtime collaborative mission board</p><h2>The shadows joined the mission</h2></div>
       <div class="mission-board glass-card reveal delay-1">
+        <svg class="route-svg" viewBox="0 0 900 470" aria-hidden="true"><path d="M110 150 C260 40 410 240 540 130 S760 125 795 325 C630 415 440 360 315 410 S150 340 110 150" /></svg>
         <div class="route-line"></div>
-        <div class="mission-node n1"><strong>@123</strong><small>Main character</small></div>
+        <div class="mission-node n1"><strong>@123</strong><small>Main character: secret watcher</small></div>
         <div class="mission-node n2"><strong>@125</strong><small>Shadow: info, details, bike, cover</small></div>
         <div class="mission-node n3"><strong>@126</strong><small>Minor shadow: bike support, walks</small></div>
         <div class="mission-node n4"><strong>@124</strong><small>The purple chapter</small></div>
+        <div class="bike-dot" aria-hidden="true"></div>
       </div>
       <div class="story-columns">
-        <article class="glass-card reveal">
-          <h3>Study-hours cinema</h3>
-          <p>@123 stayed in extra study hours because his parents wanted it. @125 forcefully sat there mainly to help @123 see @124 in the opposite class, and @126 joined too.</p>
-        </article>
-        <article class="glass-card reveal delay-1">
-          <h3>Bike trails</h3>
-          <p>@123 quietly saw @124, followed her auto home on @125's bike, and sometimes carried @125 and @126 into the mission route.</p>
-        </article>
-        <article class="glass-card reveal delay-2">
-          <h3>The seen effort</h3>
-          <p>A small fraction reached @124's eyes—the biggest moment was @123 skipping food to follow her while she went home.</p>
-        </article>
+        <article class="glass-card reveal"><h3>Study-hours cinema</h3><p>@123 stayed in extra study hours because his parents wanted it. @125 forcefully sat there mainly to help @123 see @124 in the opposite class, and @126 joined too.</p></article>
+        <article class="glass-card reveal delay-1"><h3>Bike trails</h3><p>@123 quietly saw @124, followed her auto home on @125's bike, and sometimes carried @125 and @126 into the mission route.</p></article>
+        <article class="glass-card reveal delay-2"><h3>The seen effort</h3><p>A small fraction reached @124's eyes—the biggest moment was @123 skipping food to follow her while she went home.</p></article>
       </div>
     </section>
 
-    <section class="doodle-panel panel">
-      <svg viewBox="0 0 900 280" class="doodle-svg" aria-hidden="true">
-        <path class="draw draw-1" d="M20 210 C140 30 260 260 380 90 S620 190 720 70 860 95 885 40" />
-        <path class="draw draw-2" d="M120 180 q45 -90 90 0 t90 0 t90 0 t90 0" />
-        <circle class="draw-dot" cx="735" cy="70" r="11" />
-        <text x="60" y="70">doodles of a secret route</text>
+    <section class="doodle-panel panel scene" data-scene="self-drawing-route">
+      <div class="section-heading reveal"><p class="eyebrow">Self drawing + doodle web animations</p><h2>A secret route draws itself</h2></div>
+      <svg viewBox="0 0 900 320" class="doodle-svg" aria-label="Self drawing doodle route">
+        <path class="draw draw-1" d="M20 235 C140 30 260 280 380 100 S620 205 720 80 860 105 885 48" />
+        <path class="draw draw-2" d="M120 210 q45 -90 90 0 t90 0 t90 0 t90 0" />
+        <path class="draw draw-3" d="M92 88 c28 -42 64 2 32 32 c-18 16 -32 25 -32 25 s-14 -9 -32 -25 c-32 -30 4 -74 32 -32z" />
+        <circle class="draw-dot" cx="735" cy="80" r="11" />
+        <text x="60" y="64">doodles of a secret bike + auto route</text>
       </svg>
     </section>
 
-    <section id="future" class="panel finale">
+    <section id="future" class="panel finale scene" data-scene="current-progress">
       <div class="glass-card finale-card reveal">
         <p class="eyebrow">Current chapter</p>
         <h2>The message before IPE</h2>
-        <p>As inter IPE exams began, @124 contacted her friend to send @123 a message indirectly: don't love @124, because she didn't want to. But @123 slowly became closer, and the growth is still progressing.</p>
+        <p>As inter IPE exams began, @124 contacted her friend to send @123 a message indirectly: do not love @124, because she did not want to. But @123 slowly became closer, and the growth is currently progressing.</p>
         <div class="growth-meter" aria-label="Relationship progress indicator"><span></span></div>
+        <div class="micro-grid" aria-label="Micro interactions list">
+          <span>glass morph</span><span>hope particles</span><span>scroll glow</span><span>animated progress</span>
+        </div>
         <button class="magnetic btn primary confetti-btn">Release hope particles</button>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>Built as a living animated story: glass, glow, scroll, doodle, morph, and micro-interaction powered.</p>
+    <p>Built as a living animated story: realtime-feeling collaboration, glass, glow, vertical and horizontal scroll, doodle, morph, self-drawing paths, character motion, micro-interactions, and advanced transitions.</p>
   </footer>
 
   <script src="script.js"></script>
