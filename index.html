@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@123 × @124 — Storytelling 2.0</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="loader" aria-label="Opening animation">
+    <div class="loader-orbit">
+      <span></span><span></span><span></span>
+      <strong>@123</strong>
+    </div>
+    <p>drawing the first chapter...</p>
+  </div>
+
+  <div class="progress-shell" aria-hidden="true">
+    <div class="progress-bar"></div>
+    <div class="progress-dot"></div>
+  </div>
+
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="aurora" aria-hidden="true"></div>
+  <canvas id="constellation" aria-hidden="true"></canvas>
+
+  <nav class="glass-nav">
+    <a href="#hero" class="brand"><span>@123</span><i>♥</i><span>@124</span></a>
+    <div class="nav-links">
+      <a href="#friends">Friends</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#shadows">Shadows</a>
+      <a href="#future">Now</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="hero" class="hero panel">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">A dark cinematic love-scroll</p>
+        <h1><span>How</span> <b>@123</b> <span>fell for</span> <b>@124</b></h1>
+        <p class="subtitle">A story of hostel distance, Kadapa breaks, secret bike trails, loyal shadows, and a love that is still loading its next chapter.</p>
+        <div class="hero-actions">
+          <a class="magnetic btn primary" href="#timeline">Start the story</a>
+          <button class="magnetic btn ghost" id="syncMoment">Sync hearts</button>
+        </div>
+      </div>
+
+      <div class="stage reveal delay-1" aria-label="Animated characters">
+        <svg class="heart-line" viewBox="0 0 420 210" role="img" aria-label="Self drawing heart path from @123 to @124">
+          <path d="M40 150 C80 40 155 80 210 135 C265 80 340 40 380 150 C330 205 255 205 210 178 C165 205 90 205 40 150Z" />
+        </svg>
+        <div class="character boy123" data-name="@123">
+          <div class="head"></div><div class="body"></div><div class="legs"></div>
+        </div>
+        <div class="character girl124" data-name="@124">
+          <div class="head"></div><div class="body dress"></div><div class="legs"></div>
+        </div>
+        <div class="floating-note note-a">1 day older ✦</div>
+        <div class="floating-note note-b">secret glances</div>
+      </div>
+
+      <div class="scroll-cue"><span></span>scroll to animate</div>
+    </section>
+
+    <section id="friends" class="panel intro-grid">
+      <article class="glass-card reveal">
+        <h2>Three close friends</h2>
+        <p>@125 and @126 were in the same Kadapa college and class, while @123 spent the first inter year in Sri Chaitanya hostel, Hyderabad, because of his parents.</p>
+        <p>Every few weeks, @123 came home to Kadapa and roamed with @125 and @126 in free time.</p>
+      </article>
+      <div class="friend-cards">
+        <article class="mini-card tilt reveal delay-1">
+          <div class="avatar avatar125"></div>
+          <h3>@125</h3>
+          <p>5.7ft • black tee • grey-black tracks • rule maker, food-rule keeper, lazy but loyal shadow.</p>
+        </article>
+        <article class="mini-card tilt reveal delay-2">
+          <div class="avatar avatar123"></div>
+          <h3>@123</h3>
+          <p>5.6ft • pink half-hands tee • black tracks • main character, quiet watcher, secretly determined.</p>
+        </article>
+        <article class="mini-card tilt reveal delay-3">
+          <div class="avatar avatar126"></div>
+          <h3>@126</h3>
+          <p>5.75ft • bright orange tee • dark blue tracks • normal, supportive, playful teasing partner.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="horizontal-wrap" aria-label="Horizontal story reel">
+      <div class="horizontal-track">
+        <article class="story-slide hostel">
+          <span>01</span><h2>Hyderabad to Kadapa</h2>
+          <p>@123 returned from hostel after two months. Seats were over in the friends' batch, so he joined a better batch—unwantedly, but still studying.</p>
+        </article>
+        <article class="story-slide breaks">
+          <span>02</span><h2>15-minute portals</h2>
+          <p>Break time and lunch became portals: @123 visited @125 and @126's classroom to talk, play, and make ordinary days cinematic.</p>
+        </article>
+        <article class="story-slide tease">
+          <span>03</span><h2>The nickname @d</h2>
+          <p>@123 and @126 teased @125 with @d, a nickname linked to crush names starting with D and a little netranandham comedy.</p>
+        </article>
+        <article class="story-slide rule">
+          <span>04</span><h2>The carry-box law</h2>
+          <p>@125 made rules: values, manners, future property ideas—and the famous carry box rule: don't open until @123 arrives.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="timeline" class="panel timeline-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Morphing timeline</p>
+        <h2>When a “single forever” plan changed</h2>
+      </div>
+      <div class="morph-card reveal delay-1">
+        <div class="blob"></div>
+        <p>At first @123 said he would stay single, maybe think about love in BTech, or just never love. Then September–October happened.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item reveal"><b>September–October</b><p>@123 loved someone and promised @125 and @126 he would reveal the name on his birthday.</p></div>
+        <div class="timeline-item reveal"><b>Before November birthday</b><p>@125 guessed the name. @123 denied it at first, but under pressure admitted the guess was right.</p></div>
+        <div class="timeline-item reveal"><b>The reveal</b><p>The name was @124—the girl in the opposite class of @125 and @126.</p></div>
+        <div class="timeline-item reveal"><b>The coincidence</b><p>@123 is exactly one day older than @124, turning the reveal into a tiny universe-made animation.</p></div>
+      </div>
+    </section>
+
+    <section id="shadows" class="panel shadow-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Collaborative animations</p>
+        <h2>The shadows joined the mission</h2>
+      </div>
+      <div class="mission-board glass-card reveal delay-1">
+        <div class="route-line"></div>
+        <div class="mission-node n1"><strong>@123</strong><small>Main character</small></div>
+        <div class="mission-node n2"><strong>@125</strong><small>Shadow: info, details, bike, cover</small></div>
+        <div class="mission-node n3"><strong>@126</strong><small>Minor shadow: bike support, walks</small></div>
+        <div class="mission-node n4"><strong>@124</strong><small>The purple chapter</small></div>
+      </div>
+      <div class="story-columns">
+        <article class="glass-card reveal">
+          <h3>Study-hours cinema</h3>
+          <p>@123 stayed in extra study hours because his parents wanted it. @125 forcefully sat there mainly to help @123 see @124 in the opposite class, and @126 joined too.</p>
+        </article>
+        <article class="glass-card reveal delay-1">
+          <h3>Bike trails</h3>
+          <p>@123 quietly saw @124, followed her auto home on @125's bike, and sometimes carried @125 and @126 into the mission route.</p>
+        </article>
+        <article class="glass-card reveal delay-2">
+          <h3>The seen effort</h3>
+          <p>A small fraction reached @124's eyes—the biggest moment was @123 skipping food to follow her while she went home.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="doodle-panel panel">
+      <svg viewBox="0 0 900 280" class="doodle-svg" aria-hidden="true">
+        <path class="draw draw-1" d="M20 210 C140 30 260 260 380 90 S620 190 720 70 860 95 885 40" />
+        <path class="draw draw-2" d="M120 180 q45 -90 90 0 t90 0 t90 0 t90 0" />
+        <circle class="draw-dot" cx="735" cy="70" r="11" />
+        <text x="60" y="70">doodles of a secret route</text>
+      </svg>
+    </section>
+
+    <section id="future" class="panel finale">
+      <div class="glass-card finale-card reveal">
+        <p class="eyebrow">Current chapter</p>
+        <h2>The message before IPE</h2>
+        <p>As inter IPE exams began, @124 contacted her friend to send @123 a message indirectly: don't love @124, because she didn't want to. But @123 slowly became closer, and the growth is still progressing.</p>
+        <div class="growth-meter" aria-label="Relationship progress indicator"><span></span></div>
+        <button class="magnetic btn primary confetti-btn">Release hope particles</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built as a living animated story: glass, glow, scroll, doodle, morph, and micro-interaction powered.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
