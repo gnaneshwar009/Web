@@ -10,6 +10,13 @@ const horizontalWrap = document.querySelector('.horizontal-wrap');
 const horizontalTrack = document.querySelector('.horizontal-track');
 const hero = document.querySelector('.hero');
 const stage = document.querySelector('.stage');
+const kineticTextNodes = document.querySelectorAll('h1, h2, h3, .subtitle, .story-beat p, .story-slide p, .timeline-item p, .glass-card > p');
+kineticTextNodes.forEach((node, index) => {
+  node.classList.add('kinetic-text');
+  node.style.setProperty('--text-delay', `${Math.min(index % 6, 5) * 70}ms`);
+  if (node.matches('h1, h2')) node.classList.add('zoom-text', 'text-spark');
+  if (node.matches('.story-beat p, .story-slide p')) node.classList.add('soft-reader');
+});
 
 function updateScrollEffects() {
   const max = document.documentElement.scrollHeight - innerHeight;
@@ -32,6 +39,14 @@ function updateScrollEffects() {
     stage.style.transform = `rotateX(${heroProgress * 5}deg) rotateY(${-heroProgress * 8}deg) translateY(${heroProgress * 26}px)`;
     hero.style.setProperty('--hero-progress', heroProgress.toFixed(3));
   }
+
+  kineticTextNodes.forEach(node => {
+    const rect = node.getBoundingClientRect();
+    const start = innerHeight * 0.92;
+    const end = innerHeight * 0.18;
+    const textProgress = Math.min(1, Math.max(0, (start - rect.top) / Math.max(1, start - end)));
+    node.style.setProperty('--text-progress', textProgress.toFixed(3));
+  });
 }
 window.addEventListener('scroll', updateScrollEffects, { passive: true });
 window.addEventListener('resize', updateScrollEffects);
@@ -42,7 +57,7 @@ const observer = new IntersectionObserver(entries => {
     if (entry.isIntersecting) entry.target.classList.add('in-view');
   });
 }, { threshold: 0.16 });
-document.querySelectorAll('.reveal, .doodle-panel').forEach(el => observer.observe(el));
+document.querySelectorAll('.reveal, .doodle-panel, .kinetic-text').forEach(el => observer.observe(el));
 
 const cursorGlow = document.querySelector('.cursor-glow');
 window.addEventListener('pointermove', event => {
