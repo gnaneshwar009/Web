@@ -5,7 +5,9 @@ from dataclasses import dataclass
 class TryOnConfig:
     """Runtime settings for local virtual try-on inference."""
 
+    backend: str = "sdxl"
     model_id: str = "diffusers/stable-diffusion-xl-1.0-inpainting-0.1"
+    external_backend_command: str = ""
     device: str = "cuda"
     width: int = 768
     height: int = 1024
@@ -17,3 +19,6 @@ class TryOnConfig:
     mask_blur_radius: int = 14
     category: str = "full"
     run_quality_checks: bool = True
+    enable_vae_tiling: bool = True
+    enable_model_cpu_offload: bool = False
+    max_upload_mb: int = 25

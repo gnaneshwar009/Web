@@ -67,18 +67,38 @@ python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 python -m fashion_tryon.cli \
+  --backend sdxl \
   --person examples/person.jpg \
+  --garment examples/garment.jpg \
   --prompt "navy blue slim-fit tuxedo with satin lapels" \
   --category full \
+  --seed 42 \
+  --width 768 \
+  --height 1024 \
+  --guidance-scale 7.5 \
+  --strength 0.86 \
   --mask-output outputs/mask.png \
   --report-output outputs/quality.txt \
   --output outputs/tryon.png
+```
+
+For CatVTON/IDM-VTON-style local repos, keep this app and call an external runner:
+
+```bash
+python -m fashion_tryon.cli \
+  --backend catvton \
+  --external-backend-command "python external/catvton_runner.py" \
+  --person examples/person.jpg \
+  --garment examples/garment.jpg \
+  --prompt "black velvet prom suit with silver embroidery"
 ```
 
 Or run the API:
 
 ```bash
 uvicorn fashion_tryon.api:app --host 127.0.0.1 --port 8000
+# Health: http://127.0.0.1:8000/health
+# Models: http://127.0.0.1:8000/models
 ```
 
 Then send a multipart request:
@@ -112,7 +132,9 @@ src/fashion_tryon/
   api.py          FastAPI HTTP endpoint
   cli.py          Command-line entry point
   config.py       Runtime settings
+  backends.py     SDXL backend plus external CatVTON/IDM-VTON command adapter
   pipeline.py     Local diffusion inpainting pipeline
+  validation.py   Upload and prompt validation
   preprocess.py   Person image validation and mask generation
   quality.py      Post-generation identity/body drift checks
 ```
