@@ -5,7 +5,7 @@ from pathlib import Path
 
 import cv2
 import numpy as np
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFilter
 
 
 @dataclass(frozen=True)
@@ -30,8 +30,13 @@ def resize_canvas(image: Image.Image, width: int, height: int) -> Image.Image:
     return canvas
 
 
-def make_outfit_mask(image: Image.Image, preserve_face_ratio: float = 0.18) -> Image.Image:
-    """Create a conservative torso/leg inpainting mask.
+def make_outfit_mask(
+    image: Image.Image,
+    preserve_face_ratio: float = 0.18,
+    category: str = "full",
+    blur_radius: int = 14,
+) -> Image.Image:
+    """Create a conservative inpainting mask for the requested garment area.
 
     Production systems should replace this heuristic with human parsing, pose,
     and garment-category masks. White pixels are edited; black pixels are kept.
@@ -42,15 +47,39 @@ def make_outfit_mask(image: Image.Image, preserve_face_ratio: float = 0.18) -> I
     draw = ImageDraw.Draw(mask)
 
     face_bottom = int(height * preserve_face_ratio)
+    torso_top = max(face_bottom, int(height * 0.20))
+    torso_bottom = int(height * 0.58)
+    legs_bottom = int(height * 0.94)
     left = int(width * 0.18)
     right = int(width * 0.82)
-    top = max(face_bottom, int(height * 0.20))
-    bottom = int(height * 0.94)
 
-    draw.rounded_rectangle((left, top, right, bottom), radius=int(width * 0.08), fill=255)
-    draw.rectangle((int(width * 0.30), top, int(width * 0.70), int(height * 0.55)), fill=255)
+    normalized = category.lower().strip()
+    if normalized not in {"upper", "lower", "full"}:
+        raise ValueError("category must be one of: upper, lower, full")
 
-    return mask.filter(Image.Resampling.BOX) if False else mask
+    if normalized in {"upper", "full"}:
+        draw.rounded_rectangle(
+            (left, torso_top, right, torso_bottom),
+            radius=int(width * 0.07),
+            fill=255,
+        )
+        # Sleeves/arms are often close to the torso; include a cautious band.
+        draw.rounded_rectangle(
+            (int(width * 0.10), int(height * 0.24), int(width * 0.90), int(height * 0.52)),
+            radius=int(width * 0.06),
+            fill=210,
+        )
+
+    if normalized in {"lower", "full"}:
+        draw.rounded_rectangle(
+            (int(width * 0.26), int(height * 0.50), int(width * 0.74), legs_bottom),
+            radius=int(width * 0.05),
+            fill=255,
+        )
+
+    if blur_radius > 0:
+        mask = mask.filter(ImageFilter.GaussianBlur(radius=blur_radius))
+    return mask
 
 
 def validate_full_body_likelihood(image: Image.Image) -> None:
@@ -64,7 +93,17 @@ def validate_full_body_likelihood(image: Image.Image) -> None:
         raise ValueError("The uploaded photo does not look like a full-body image.")
 
 
-def prepare_person(path: str | Path, width: int, height: int, preserve_face_ratio: float) -> PreparedPerson:
+def prepare_person(
+    path: str | Path,
+    width: int,
+    height: int,
+    preserve_face_ratio: float,
+    category: str = "full",
+    blur_radius: int = 14,
+) -> PreparedPerson:
     image = resize_canvas(load_rgb_image(path), width, height)
     validate_full_body_likelihood(image)
-    return PreparedPerson(image=image, mask=make_outfit_mask(image, preserve_face_ratio))
+    return PreparedPerson(
+        image=image,
+        mask=make_outfit_mask(image, preserve_face_ratio, category=category, blur_radius=blur_radius),
+    )

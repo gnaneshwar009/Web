@@ -16,6 +16,7 @@ dependencies = [
   "pillow>=10.4.0",
   "pydantic>=2.8.0",
   "python-multipart>=0.0.9",
+  "starlette>=0.37.0",
   "torch>=2.3.0",
   "transformers>=4.43.0",
   "uvicorn>=0.30.0",

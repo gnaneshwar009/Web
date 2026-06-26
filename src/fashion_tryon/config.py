@@ -13,3 +13,7 @@ class TryOnConfig:
     num_inference_steps: int = 30
     seed: int | None = 42
     preserve_face_ratio: float = 0.18
+    strength: float = 0.86
+    mask_blur_radius: int = 14
+    category: str = "full"
+    run_quality_checks: bool = True

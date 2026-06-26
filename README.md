@@ -37,7 +37,7 @@ For a local PC, choose based on VRAM:
 | 16-24 GB | IDM-VTON or CatVTON at 768-1024 px | Best local balance. |
 | 24+ GB | Fine-tune LoRA/adapters on VITON-HD + Dress Code | Practical research setup. |
 
-The starter code below uses a **local SDXL inpainting fallback** because it is straightforward to run and customize. For production quality, replace `src/fashion_tryon/pipeline.py` with an IDM-VTON/CatVTON inference wrapper while keeping the same API.
+The starter code below uses a **local SDXL inpainting fallback** because it is straightforward to run and customize. It now supports garment-category masks, optional garment-reference colour hints, mask export, and quality reports. For production quality, replace `src/fashion_tryon/pipeline.py` with an IDM-VTON/CatVTON inference wrapper while keeping the same API. See `MODELS_AND_DATA.md` for the stronger model roadmap.
 
 ## Datasets
 
@@ -66,7 +66,13 @@ There is no dataset size that trains a model "perfectly". A realistic plan is:
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-python -m fashion_tryon.cli --person examples/person.jpg --prompt "navy blue slim-fit tuxedo with satin lapels" --output outputs/tryon.png
+python -m fashion_tryon.cli \
+  --person examples/person.jpg \
+  --prompt "navy blue slim-fit tuxedo with satin lapels" \
+  --category full \
+  --mask-output outputs/mask.png \
+  --report-output outputs/quality.txt \
+  --output outputs/tryon.png
 ```
 
 Or run the API:
@@ -80,6 +86,8 @@ Then send a multipart request:
 ```bash
 curl -X POST http://127.0.0.1:8000/try-on \
   -F 'person=@examples/person.jpg' \
+  -F 'garment=@examples/garment.jpg' \
+  -F 'category=full' \
   -F 'prompt=emerald green embroidered sherwani with gold buttons' \
   --output outputs/result.png
 ```
@@ -106,4 +114,5 @@ src/fashion_tryon/
   config.py       Runtime settings
   pipeline.py     Local diffusion inpainting pipeline
   preprocess.py   Person image validation and mask generation
+  quality.py      Post-generation identity/body drift checks
 ```
